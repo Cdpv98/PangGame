@@ -1,60 +1,53 @@
 
-
-
 export class Player1 extends Phaser.Physics.Arcade.Sprite {
     constructor(scene,x, y, texture, frame){
         super(scene,x,y,texture,frame);
-
+       
         scene.add.existing(this);
         scene.physics.add.existing(this);
         this.setCollideWorldBounds(true);
         this.setScale(1);
-
-        this.iniitalFrame = frame;
-        this.speed = 700;
-        this.controls = scene.input.keyboard.createCursorKeys();
-     
-     
         this.state='idle';
         this.anims.play('idle');
+        this.iniitalFrame = frame;
+        this.speed = 700;
         this.previous_state =this.state;
-        
+ 
     }
 
 
-
+ 
 create(){
-
-    this.keys = this.input.keyboard.addKeys({
-        a:  Phaser.Input.Keyboard.KeyCodes.A,
-        d:  Phaser.Input.Keyboard.KeyCodes.D,
-        w:  Phaser.Input.Keyboard.KeyCodes.W
-    });
+   
+key1 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
 }
 
 
     update(time) {
+        var key1;
+        var key2;
+        var key3;
+       if((Phaser.Input.KeyBoard.JustDown(key1)) ) {
+        this.setVelocityX(-this.speed);
+       this.flipX = true;
+      this.state = 'walk';
+         }
+    else if((this.controls.right.isDown) ) {
+        this.setVelocityX(this.speed);
+        this.flipX = false;
+        this.state = 'walk';
+    }
+    else {
+        this.setVelocityX(0);
+        this.state = "idle";
+    }
 
-        if(this.keys.a.isDown) {
-            this.setVelocityX(-this.speed);
-            this.flipX = true;
-            this.state = 'walk';
-        }
-        else if(this.keys.d.isDown) {
-            this.setVelocityX(this.speed);
-            this.flipX = false;
-            this.state = 'walk';
-        }
-        else {
-            this.setVelocityX(0);
-            this.state = "idle";
-        }
-
-        if(this.keys.w.isDown) {
-           this.setVelocityX(0,0);
-            this.state = 'idle';
-        
-        }
+    if(this.controls.space.isDown) {
+       //this.setVelocityX(0,0);
+        this.state = 'idle';
+    
+  
+     
 
         if(this.state != this.previous_state) {
             this.previous_state = this.state;
@@ -76,5 +69,9 @@ create(){
                 this.setFrame(this.initialFrame);
             }
         }
+        
     }
+    }
+
+    
 }

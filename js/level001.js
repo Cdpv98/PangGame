@@ -1,6 +1,5 @@
 import { Player } from "./player.js";
 import { Ball } from "./ball.js";
-import { Weapon } from "./weapon.js";
 export  class nivel1 extends Phaser.Scene {
     constructor() {
         super("nivel1");
@@ -12,7 +11,7 @@ init(){
     this.maxLife = 5;
 }
     create() {
-        this.add.image(0, 0, 'bg').setOrigin(0).setScale(1);
+        this.add.image(0, 0, 'bg').setOrigin(0).setScale(0.7);
       
    
         this.player = new Player(
@@ -22,6 +21,7 @@ init(){
             'player', 1
            
         );
+
         
         this.groupBall= this.add.group();
         this.addBall(250,0,5);
@@ -31,29 +31,24 @@ init(){
 
     update(time) {
        this.player.update(time);
-     
        if(this.controls.space.isDown){
 
         this.fireHarpoon();
        }
-
-      
-        }
+    }
 
         
 
-                   ///////////////                                                           
+                                    
  
      fireHarpoon(){
-      console.log("couting_shoots");
+  
         var harpoon = this.physics.add.image(this.player.x,this.player.y-1, 'weapon').setOrigin(0).setScale(3);
       harpoon.scaleY=0;
       this.physics.add.overlap(harpoon,this.groupBall,this.hitHarpoon,null,this);
-     
-///////////////
       this.tweens.add({
         targets:harpoon,
-        y:450,
+        y:100,
         scaleY:5,
         duration:100,
         onComplete:function(tweens,targets){
@@ -69,7 +64,7 @@ hitHarpoon(harpoon,targets){
     harpoon.destroy();
     targets.destroy();
     if(this.groupBall.children.size==0){
-        console.log("nova cena");
+    //    console.log("nova cena");
         this.scene.start("nivel2"); 
     }
 }
@@ -80,7 +75,6 @@ addBall(x,y,scale){
 
 
 playerLoseLive(){
-console.log("player lose health by ball touching him");
 this.maxLife--;
 console.log("perdi 1 vida");
 if(this.maxLife <=0){
@@ -88,3 +82,6 @@ if(this.maxLife <=0){
 }
 }
 }
+
+
+

@@ -1,5 +1,4 @@
 import { Player } from "./player.js";
-import {Player1} from "./player1.js";
 import { Ball } from "./ball.js";
 import { Weapon } from "./weapon.js";
 export  class nivel3 extends Phaser.Scene {
@@ -10,20 +9,13 @@ export  class nivel3 extends Phaser.Scene {
 
 init(){
     this.controls = this.input.keyboard.createCursorKeys();
-  this.maxLife=5;
+  this.maxLife =5;
 }
     create() {
-        this.add.image(0, 0, 'bg1').setOrigin(0).setScale(1);
+        this.add.image(0, 0, 'bg1').setOrigin(0).setScale(0.7);
       
    
         this.player = new Player(
-            this,
-            this.game.config.width * 0.5,
-            this.game.config.height * 0.5,
-            'player', 1
-           
-        );
-        this.player1 = new Player1(
             this,
             this.game.config.width * 0.5,
             this.game.config.height * 0.5,
@@ -34,7 +26,6 @@ init(){
         this.groupBall= this.add.group();
         this.addBall(250,0,5);
         this.physics.add.overlap(this.player,this.groupBall,this.playerLoseLive,null,this);
-        this.physics.add.overlap(this.player1,this.groupBall,this.playerLoseLive1,null,this);
     }
 
 
@@ -47,7 +38,7 @@ init(){
        }
         }
 
-                   ///////////////                                                           
+                                                                        
  
      fireHarpoon(){
       console.log("couting_shoots");
@@ -55,10 +46,10 @@ init(){
       harpoon.scaleY=0;
       this.physics.add.overlap(harpoon,this.groupBall,this.hitHarpoon,null,this);
      
-///////////////
+
       this.tweens.add({
         targets:harpoon,
-        y:350,
+        y:100,
         scaleY:5,
         duration:125,
         onComplete:function(tweens,targets){
@@ -75,25 +66,16 @@ hitHarpoon(harpoon,targets){
     targets.destroy();
     if(this.groupBall.children.size==0){
         console.log("nova cena");
-        this.scene.start("nivel3"); 
+        this.scene.start("nivel1"); 
     }
 }
 addBall(x,y,scale){
     this.groupBall.add(new Ball(this,x,y,'ball',1,scale));
     this.groupBall.add(new Ball(this,x,y,'ball',-1,scale));
-
 }
 
 
 playerLoseLive(){
-    console.log("player lose health by ball touching him");
-    this.maxLife--;
-    console.log("perdi 1 vida");
-    if(this.maxLife <=0){
-        this.scene.start("nivel3");
-    }
-}
-playerLoseLive1(){
     console.log("player lose health by ball touching him");
     this.maxLife--;
     console.log("perdi 1 vida");

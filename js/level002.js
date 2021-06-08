@@ -12,7 +12,7 @@ init(){
   this.maxLife =5;
 }
     create() {
-        this.add.image(0, 0, 'bg0').setOrigin(0).setScale(1);
+        this.add.image(0, 0, 'bg0').setOrigin(0).setScale(0.7);
       
    
         this.player = new Player(
@@ -38,7 +38,7 @@ init(){
        }
         }
 
-                   ///////////////                                                           
+                                                                        
  
      fireHarpoon(){
       console.log("couting_shoots");
@@ -46,10 +46,10 @@ init(){
       harpoon.scaleY=0;
       this.physics.add.overlap(harpoon,this.groupBall,this.hitHarpoon,null,this);
      
-///////////////
+
       this.tweens.add({
         targets:harpoon,
-        y:350,
+        y:100,
         scaleY:5,
         duration:125,
         onComplete:function(tweens,targets){

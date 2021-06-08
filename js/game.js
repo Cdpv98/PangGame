@@ -4,8 +4,8 @@ import { nivel3 } from "./level003.js";
 import { LoadScene } from "./loadscene.js";
 
 const config = {
-    width: 1820,
-    height: 1024,
+    width: 1345,
+    height: 755,
     type: Phaser.AUTO,
     parent: 'game-canvas',
     backgroundColor: '#d3fa2',
@@ -14,10 +14,10 @@ const config = {
         default: 'arcade',
         arcade: {
             gravity: {
-                y: 650
+                y: 1000
 
             },
-            debug: true
+            debug: false
         }
     },
     pixelArt: true

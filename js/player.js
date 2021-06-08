@@ -1,6 +1,3 @@
-
-
-
 export class Player extends Phaser.Physics.Arcade.Sprite {
     constructor(scene,x, y, texture, frame){
         super(scene,x,y,texture,frame);
@@ -8,7 +5,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
         scene.add.existing(this);
         scene.physics.add.existing(this);
         this.setCollideWorldBounds(true);
-        this.setScale(1);
+        this.setScale(0.7);
         this.iniitalFrame = frame;
         this.speed = 700;
         this.controls = scene.input.keyboard.createCursorKeys();
