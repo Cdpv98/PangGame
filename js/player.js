@@ -40,7 +40,7 @@ create(){
         }
 
         if(this.controls.space.isDown) {
-           //this.setVelocityX(0,0);
+           this.setVelocityX(0,0);
             this.state = 'idle';
         
         }
