@@ -54,7 +54,8 @@ export  class nivel1 extends Phaser.Scene {
             this.fireHarpoon();
            
            }
-        }                                    
+        }  
+  //>  //ADAPTADO DO https://github.com/MacChoi/App/tree/master/Pang 
      //metodo do harppon
          fireHarpoon(){
             var harpoon = this.physics.add.image(this.player.x,this.player.y-1, 'weapon').setOrigin(0).setScale(3);
@@ -85,7 +86,7 @@ export  class nivel1 extends Phaser.Scene {
     //adiciona as bolas a cena
     addBall(x,y,scale){
         this.ballGroup.add(new Ball(this,x,y,'ball',1,scale));
-     
+     //<
     }
     //sistema de vida do jogador
     playerLoseLive(){
