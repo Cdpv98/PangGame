@@ -26,3 +26,6 @@ After level3 it reloads game and start on level1 again.
 Made by ValkyrianCS.
 <br>
 <br>
+University project!
+<br>
+<br>
