@@ -12,27 +12,28 @@ export class Player1 extends Phaser.Physics.Arcade.Sprite {
         this.iniitalFrame = frame;
         this.speed = 700;
         this.previous_state =this.state;
- 
+        var keyA;
+        var keyD;
+        var keyW;
     }
 
 
  
 create(){
-   
-key1 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+    this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+    this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+    this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
 }
 
 
     update(time) {
-        var key1;
-        var key2;
-        var key3;
-       if((Phaser.Input.KeyBoard.JustDown(key1)) ) {
+   ;
+       if(this.keyA.isDown) {
         this.setVelocityX(-this.speed);
        this.flipX = true;
       this.state = 'walk';
          }
-    else if((this.controls.right.isDown) ) {
+    else if(this.keyD.isDown ) {
         this.setVelocityX(this.speed);
         this.flipX = false;
         this.state = 'walk';
@@ -42,7 +43,7 @@ key1 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         this.state = "idle";
     }
 
-    if(this.controls.space.isDown) {
+    if(this.keyW.isDown) {
        //this.setVelocityX(0,0);
         this.state = 'idle';
     
@@ -69,8 +70,11 @@ key1 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
                 this.setFrame(this.initialFrame);
             }
         }
-        
+        var keyA;
+        var keyD;
+        var keyW;
     }
+   
     }
 
     

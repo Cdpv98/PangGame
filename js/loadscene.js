@@ -17,6 +17,7 @@ preload()  {
         frameHeight:128
     });
     this.load.image('weapon', './img/harpon.png');
+    this.load.image('lives', './img/2.png');
     
 }
 create(){
