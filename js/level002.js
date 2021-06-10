@@ -53,7 +53,8 @@ init(){
        if(this.controls.space.isDown){
         this.fireHarpoon();
        }
-        }                                                              
+        }           
+    //>// ADAPTADO DO https://github.com/MacChoi/App/tree/master/Pang 
  //metodo do harppon
      fireHarpoon(){
       console.log("couting_shoots");
@@ -88,7 +89,7 @@ addBall(x,y,scale){
     this.ballGroup.add(new Ball(this,x,y,'ball',1,scale));
     this.ballGroup.add(new Ball(this,x,y,'ball',-1,scale));
 }
-
+//<
 //sistema de vida do jogador
 playerLoseLive(){
     //conta a colisao e remove 1 vida
