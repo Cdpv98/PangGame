@@ -26,7 +26,7 @@ export  class nivel1 extends Phaser.Scene {
                 
             });
         //add vidas restantes em texto
-         this.lives  = this.add.text( 'Vidas Restantes ' + this.maxLife + '.' , {
+         this.lives  = this.add.text(50, 80, 'Vidas Restantes ' + this.maxLife + '.' , {
                 font: "30px Arial",
                 color: '#2c3e50'
     
