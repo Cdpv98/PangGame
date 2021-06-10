@@ -13,7 +13,7 @@ Keys:<br>
 Space - Shoots Harpoon<br>
 <br>
 <br>
-Game consists in 3 levels
+Game consists in 3 levels.<br>
 Player have 5 lives, lose one life each time ball collide with player.<br>
 Reach next level by killing all balls.
 <br>
