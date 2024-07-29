@@ -3,7 +3,7 @@ Another version of Pang Game in Phaser3<br>
 <br>
 <br>
 Link to play:.<br>
- > https://valkyriancs.github.io/PangGame/
+ >  https://cdpv98.github.io/PangGame/
 <br>
 <br>
 <br>
